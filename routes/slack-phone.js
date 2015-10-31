@@ -6,7 +6,7 @@ var message = 'Daniel. DroneDeploys Payment API Hit a Critical Problem.';
 
 router.get('/', function(req, res, next) {
   twilio.call(process.env.TWILIO_NUMBER_TO_CALL, function(result){
-    res.send(result);
+    res.send('success');
   })
 });
 

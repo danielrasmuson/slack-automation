@@ -1,3 +1,5 @@
+// any message I post in daniel-personal will come here
+
 var express = require('express');
 var router = express.Router();
 var bots = require('../bots/master-bot.js');

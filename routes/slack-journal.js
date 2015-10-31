@@ -22,7 +22,7 @@ function postMessageToJournal(message, callback){
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   postMessageToJournal('Hey Daniel. Is now a good time to reflect and think about the future?', function(){
-    res.send('respond with a resource');
+    res.send('success');
   });
 });
 
