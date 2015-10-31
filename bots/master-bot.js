@@ -1,6 +1,6 @@
 var _ = require('lodash');
 var Rx = require('rx');
-var goalBot = require('./goals/goal-bot');
+var bots = [require('./goals/goal-bot'), require('./asana/asana-bot')]
 
 function answer(botName, botIcon, message){
   return {
@@ -29,17 +29,20 @@ module.exports = {
       var commandWords = question.split(' ');
 
       // todo have this loop
-      var command = goalBot.api[commandWords[1]];
+      var bot = _.first(bots.filter(function(bot){
+        return botCMDName(bot.name) === commandWords[0];
+      }));
+      var command = bot.api[commandWords[1]];
       var commandBody = commandWords.slice(2).join(' ');
 
       if (command){
         command(commandBody).forEach(function(commandResponse){
-          observer.onNext(answer(goalBot.name, goalBot.icon, commandResponse));
+          observer.onNext(answer(bot.name, bot.icon, commandResponse));
           observer.onCompleted();
         });
       } else{
-        var helpMessage = help(goalBot.name, _.keys(goalBot.api));
-        observer.onNext(answer(goalBot.name, goalBot.icon, helpMessage));
+        var helpMessage = help(bot.name, _.keys(bot.api));
+        observer.onNext(answer(bot.name, bot.icon, helpMessage));
         observer.onCompleted();
       }
 
