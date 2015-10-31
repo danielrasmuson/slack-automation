@@ -34,9 +34,10 @@ module.exports = {
       }));
 
       if (bot === undefined){
-        console.log('Error: bot not found: '+commandWords[0]+'. Known bots: '+bots.map(function(bot){
+        observer.onError('Bot not found: '+commandWords[0]+'. Known bots: '+bots.map(function(bot){
           return botCMDName(bot.name);
-        }).join(', '))
+        }).join(', '));
+        return;
       }
 
       var command = bot.api[commandWords[1]];
