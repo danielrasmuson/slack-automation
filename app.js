@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var slackJournal = require('./routes/slack-journal');
-var slackPersonal = require('./routes/slack-personal-webhook');
+var slackDanielRasmuson = require('./routes/slack-danielrasmuson');
 var slackPhone = require('./routes/slack-phone');
 
 var app = express();
@@ -22,7 +22,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/slack/journal', slackJournal);
-app.use('/slack/danielrasmuson', slackPersonal);
+app.use('/slack/danielrasmuson', slackDanielRasmuson);
 app.use('/slack/phone', slackPhone);
 
 // catch 404 and forward to error handler
