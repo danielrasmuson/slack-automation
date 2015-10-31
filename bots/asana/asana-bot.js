@@ -34,7 +34,7 @@ var asana = {
 }
 
 module.exports = {
-  name: "Asana",
+  name: "Asana Bot",
   icon: ":ballot_box_with_check:",
   api: asana
 }

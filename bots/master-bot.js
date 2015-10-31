@@ -32,6 +32,13 @@ module.exports = {
       var bot = _.first(bots.filter(function(bot){
         return botCMDName(bot.name) === commandWords[0];
       }));
+
+      if (bot === undefined){
+        console.log('Error: bot not found: '+commandWords[0]+'. Known bots: '+bots.map(function(bot){
+          return botCMDName(bot.name);
+        }).join(', '))
+      }
+
       var command = bot.api[commandWords[1]];
       var commandBody = commandWords.slice(2).join(' ');
 
