@@ -1,0 +1,4 @@
+node_modules
+__init__.py
+.env
+db.json
