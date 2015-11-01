@@ -25,6 +25,7 @@ app.use('/', routes);
 app.use('/slack/journal', slackJournal);
 app.use('/slack/danielrasmuson', slackDanielRasmuson);
 app.use('/slack/phone', slackPhone);
+app.use('/slack/dronedeploy/payment', slackPhonePayment);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
