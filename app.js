@@ -9,6 +9,7 @@ var routes = require('./routes/index');
 var slackJournal = require('./routes/slack-journal');
 var slackDanielRasmuson = require('./routes/slack-danielrasmuson');
 var slackPhone = require('./routes/slack-phone');
+var slackPhonePayment = require('./routes/slack-dronedeploy-payment');
 
 var app = express();
 
